@@ -11,9 +11,10 @@
 # This source code is licensed under the terms described in the LICENSE file in
 # the root directory of this source tree.
 
+#Built in python library for importing complex modules?
 from setuptools import setup
 
-
+#gettin the library requirements from the requirements.txt file
 def read_requirements():
     with open("requirements.txt") as fp:
         content = fp.readlines()
