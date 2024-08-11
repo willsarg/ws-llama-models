@@ -1,10 +1,14 @@
 import transformers
 import torch
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-model = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+model_name = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 
-tokenizer = AutoTokenizer.from_pretrained(model)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+# Set the model to evaluation mode and move it to GPU
+model.to('cuda')
 
 pipeline = transformers.pipeline(
     "text-generation",
